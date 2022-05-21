@@ -1,0 +1,7 @@
+{
+  "name": "Multisports Académie Gestion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
