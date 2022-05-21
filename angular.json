@@ -32,6 +32,11 @@
               }
             ],
             "styles": ["src/theme/variables.scss", "src/global.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/css"
+              ]
+            },
             "scripts": [],
             "aot": false,
             "vendorChunk": true,
@@ -98,6 +103,11 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "styles": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/css"
+              ]
+            },
             "scripts": [],
             "assets": [
               {

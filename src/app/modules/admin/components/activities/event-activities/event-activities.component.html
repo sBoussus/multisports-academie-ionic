@@ -1,0 +1,11 @@
+<section *ngIf="event">
+  <h3 class="section-title">Liste des épreuves</h3>
+
+  <div class="block">
+    <div class="activities">
+      <app-activity-thumbnail [event]="event" *ngFor="let activity of event.activities;"
+      [activity]="activity">
+      </app-activity-thumbnail>
+    </div>
+  </div>
+</section>

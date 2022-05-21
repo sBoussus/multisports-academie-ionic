@@ -1,3 +1,71 @@
-<p>
-  event works!
-</p>
+<section id="event" *ngIf="event">
+  <section id="main_infos" class="total-price" [ngClass]="{
+      'before': eventDateStatus === 1,
+      'undergoing': eventDateStatus === 2,
+      'after': eventDateStatus === 3}">
+      <div id="block_title" class="row">
+          <div id="main_title" class="col-8">
+              <h1>{{ event.name }}</h1>
+          </div>
+          <!-- <div id="nb_teams" class="registration_status_info col-4" *ngIf="eventRegistrationStatus === 2">
+              <p>{{ event.registrations?.length + 7 }}/{{ event.maxTeams }} équipes inscrites</p>
+          </div>
+          <div id="registration_over" class="registration_status_info col-4" *ngIf="eventRegistrationStatus === 3">
+              <p>Inscriptions terminées</p>
+          </div> -->
+      </div>
+      <div id="block_registration_infos" class="block">
+          <h2>Informations importantes</h2>
+          <div id="sub_block_registration_infos">
+              <div class="row">
+                  <div class="col-12 col-md-4">
+                      <h3>Inscriptions</h3>
+                      <div class="gp_infos">
+                          <p>Du : <span class="highlight_infos">{{ event.startRegistration | date:'dd/MM/y' }}</span>
+                          </p>
+                          <p>Au : <span class="highlight_infos">{{ event.endRegistration | date:'dd/MM/y' }}</span></p>
+                      </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                      <h3>Événement</h3>
+                      <div class="gp_infos">
+                          <p>Du : <span class="highlight_infos">{{ event.startEvent | date:'dd/MM/y' }}</span></p>
+                          <p>Au : <span class="highlight_infos">{{ event.endEvent | date:'dd/MM/y' }}</span></p>
+                      </div>
+                  </div>
+                  <div class="col-12 col-md-4">
+                      <h3>Lieu</h3>
+                      <div class="gp_infos">
+                          <p><span class="highlight_infos">{{ event.place.name }}</span></p>
+                          <p><span class="highlight_infos">{{ event.place.address }}</span></p>
+                          <p><span class="highlight_infos">{{ event.place.zipcode }} {{ event.place.city | uppercase
+                                  }}</span></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div id="recap">
+              <h2>Récapitulatif</h2>
+              <p class="important_info">Inscriptions : <span class="highlight_infos">{{ event.registrations?.length }}</span> équipes pour un total de <span class="highlight_infos">{{ eventTeamsMembers }}</span> participants.</p>
+          </div>
+      </div>
+
+  </section>
+
+  <section id="content">
+
+      <div id="block_activities" class="block tab-content">
+
+          <div id="block_description" class="sub_block">
+              <h3>Présentation</h3>
+              <div class="activities_details" [innerHTML]="event.description"></div>
+          </div>
+
+          <div id="block_activities" class="sub_block">
+              <app-event-activities [event]="event"></app-event-activities>
+          </div>
+
+      </div>
+  </section>
+
+</section>

@@ -10,7 +10,7 @@ const routes: Routes = [
     path: '', component: AdminComponent,
     children: [
       { path: 'events', component: EventsComponent },
-      { path: 'events/:id', component: EventComponent },
+      { path: 'event/:id', component: EventComponent },
       { path: '**', redirectTo: "home" }
     ]
   }
