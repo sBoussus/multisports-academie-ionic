@@ -25,8 +25,8 @@ export class ActivityThumbnailComponent implements OnInit {
     }
   }
 
-  goToActivityDetailsPage() {
-    // this.router.navigateByUrl(`event/${this.event._id}/activities/${this.activity._id}`);
+  goToActivityScoresPage() {
+    this.router.navigateByUrl(`event/${this.event._id}/activities/${this.activity._id}/scores`);
   }
 
 }

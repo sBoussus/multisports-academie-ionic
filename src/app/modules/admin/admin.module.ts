@@ -13,6 +13,7 @@ import { MsUiModule } from '../ms-ui/ms-ui.module';
 import { ActivityThumbnailComponent } from './components/activities/activity-thumbnail/activity-thumbnail.component';
 import { EventActivitiesComponent } from './components/activities/event-activities/event-activities.component';
 import { EventComponent } from './pages/event/event.component';
+import { EventActivityScoresComponent } from './pages/event-activity-scores/event-activity-scores.component';
 
 
 
@@ -23,7 +24,8 @@ import { EventComponent } from './pages/event/event.component';
     EventsEventComponent,
     EventComponent,
     EventActivitiesComponent,
-    ActivityThumbnailComponent
+    ActivityThumbnailComponent,
+    EventActivityScoresComponent
   ],
   imports: [
     CommonModule,

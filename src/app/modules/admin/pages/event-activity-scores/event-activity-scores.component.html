@@ -1,0 +1,19 @@
+<section *ngIf="teamsScores">
+
+  <ion-text color="primary" *ngIf="activity">
+    <h1>{{ activity.name }}</h1>
+  </ion-text>
+
+  <ion-card *ngFor="let teamScore of teamsScores;">
+    <ion-card-content>
+      <ion-text class="team_name" color="secondary">{{ teamScore.team.name }}</ion-text>
+      <ion-item>
+        <ion-label>Points :</ion-label>
+        <ion-input type="number" value="{{ teamScore.points }}" (change)="onChangepoints($event, teamScore.team._id)"></ion-input>
+      </ion-item>      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button color="secondary" (click)="goToEvent()">Retourner à l'événement</ion-button>
+
+</section>

@@ -1,18 +1,30 @@
-<div class="row block-event" *ngIf="eventDatesStatus">
-  <div class="block-image col-12 col-md-4" style="background-image: url('{{ event.mainPicture.url }}')" (click)="goToEvent()">
-  </div>
-  <div class="block-infos col-12 col-md-8">
-      <h2 (click)="goToEvent()">{{ event.name }}</h2>
-      <div class="block-text-dates">
-          <p class="color-lightblue paragraph-title">Dates de l'événement :</p>
+<ion-card *ngIf="eventDatesStatus">
+    <ion-card-header>
+      <ion-card-title color="primary">{{ event.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text color="tertiary">
+        <div *ngIf="eventDatesStatus === 1">
+          <p class="paragraph-title">Dates de l'événement :</p>
           <p>du <span class="color-orange">{{ event.startEvent | date:'dd/MM/y' }}</span> au <span class="color-orange">{{ event.endEvent | date:'dd/MM/y' }}</span></p>
-          <p class="color-lightblue paragraph-title">Ouverture des inscriptions :</p>
-          <p>du <span class="color-orange">{{ event.startRegistration | date:'dd/MM/y' }}</span> au <span class="color-orange">{{ event.endRegistration | date:'dd/MM/y' }}</span></p>
-      </div>
-      <div class="block-buttons row">
-          <div class="block-button col-6">
-              <ms-button class="btn-custom" value="En savoir plus" width="100%" (click)="goToEvent()"></ms-button>
+          <div *ngIf="eventRegistrationStatus === 1">
+            <p class="paragraph-title">Ouverture des inscriptions :</p>
+            <p>du <span class="color-orange">{{ event.startRegistration | date:'dd/MM/y' }}</span> au <span class="color-orange">{{ event.endRegistration | date:'dd/MM/y' }}</span></p>
           </div>
-      </div>
-  </div>
-</div>
+          <div *ngIf="eventRegistrationStatus === 2">
+            <p class="paragraph-title">Inscriptions en cours :</p>
+            <p>du <span class="color-orange">{{ event.startRegistration | date:'dd/MM/y' }}</span> au <span class="color-orange">{{ event.endRegistration | date:'dd/MM/y' }}</span></p>
+          </div>
+          <div *ngIf="eventRegistrationStatus === 3">
+            <p class="paragraph-title">Inscriptions terminées</p>
+          </div>
+          <ion-button color="secondary" (click)="goToEvent()">En savoir plus</ion-button>
+        </div>
+        <div *ngIf="eventDatesStatus === 2">
+          <p class="paragraph-title">Dates de l'événement :</p>
+          <p>du <span class="color-orange">{{ event.startEvent | date:'dd/MM/y' }}</span> au <span class="color-orange">{{ event.endEvent | date:'dd/MM/y' }}</span></p>
+          <ion-button color="secondary" (click)="goToEvent()">En savoir plus</ion-button>
+        </div>
+      </ion-text>
+    </ion-card-content>    
+</ion-card>

@@ -1,11 +1,12 @@
-<section *ngIf="event">
-  <h3 class="section-title">Liste des épreuves</h3>
+<ion-text color="secondary" id="activities_section_title">Liste des épreuves</ion-text>
 
-  <div class="block">
-    <div class="activities">
-      <app-activity-thumbnail [event]="event" *ngFor="let activity of event.activities;"
+<ion-grid *ngIf="event">
+  <ion-row class="block">
+    <ion-col size="6" *ngFor="let activity of event.activities;">
+      <app-activity-thumbnail [event]="event" 
       [activity]="activity">
       </app-activity-thumbnail>
-    </div>
-  </div>
-</section>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+

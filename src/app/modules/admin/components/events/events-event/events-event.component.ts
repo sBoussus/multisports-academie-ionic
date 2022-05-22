@@ -10,6 +10,7 @@ import { Event } from 'src/app/models/event/event';
 export class EventsEventComponent implements OnInit {
 
   @Input() event :Event;
+  eventRegistrationStatus: number;
   eventDatesStatus: number;
 
   constructor(
@@ -17,6 +18,7 @@ export class EventsEventComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.defineEventRegistrationStatus();
     this.defineEventsDatesStatus();
   }
 
@@ -25,6 +27,26 @@ export class EventsEventComponent implements OnInit {
   goToEvent() {
     this.router.navigateByUrl(`/event/${this.event._id}`);
   }
+
+  /** Event registration */
+
+  defineEventRegistrationStatus() {
+    let currentDate = new Date();
+    let startRegistration = new Date(this.event.startRegistration);
+    let endRegistration = new Date(this.event.endRegistration);
+
+    // before registration
+    if (currentDate < startRegistration) {
+      this.eventRegistrationStatus = 1;
+    // during registration
+    } else if (currentDate >= startRegistration && currentDate <= endRegistration) {
+      this.eventRegistrationStatus = 2;
+    // after registration
+    } else {
+      this.eventRegistrationStatus = 3;
+    }
+  }
+  
   
   /** Event dates */
 

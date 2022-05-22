@@ -39,5 +39,9 @@ export class EventService {
   validateRegistration(id: string, registration: Registration) {
     return this.http.patch<Registration>(`${environment.apiUrl}/events/${id}/registrations`, registration);
   }
-
+  
+  updateRegistration(id: string, registration: Registration) {
+    return this.http.put<Registration>(`${environment.apiUrl}/events/${id}/registrations`, registration);
+  }
+  
 }

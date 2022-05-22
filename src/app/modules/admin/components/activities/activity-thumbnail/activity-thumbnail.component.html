@@ -1,13 +1,8 @@
-<div class="card text-center card-has-bg" style="background-image: url({{activity.mainPicture.url}});">
-  <img [src]="activity.mainPicture.url" class="card-img d-none" [alt]="activity.mainPicture.altText" >
-  <div class="card-img-overlay d-flex flex-column">
-    <div class="card-body">
-      <!-- <small class="card-meta mb-2">Nom de l'événement</small> -->
-      <h5 class="card-title mt-0 ">{{ activity.name }}</h5>
-      <!-- <small><i class="far fa-clock"></i> 15 mai 2022</small> -->
-    </div>
-    <!-- <ms-button value="En savoir plus"
-               (click)="goToActivityDetailsPage()"
-               *ngIf="displayInfoButton"></ms-button> -->
-  </div>
-</div>
+<ion-card>
+  <ion-card-header>
+    <ion-text class="activity_name" color="tertiary" class="">{{ activity.name }}</ion-text>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-button color="primary" (click)="goToActivityScoresPage()">Scores</ion-button>
+  </ion-card-content>
+</ion-card>
