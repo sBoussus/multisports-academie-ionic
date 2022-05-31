@@ -1,37 +1,37 @@
 <section id="event" *ngIf="event">
 
-  <ion-card color="medium">
-    <ion-card-header>
-      <ion-card-title color="primary">{{ event.name }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-        <div class="sub_block">
-            <ion-text color="secondary" class="subtitle">Inscriptions</ion-text>
-            <ion-text color="tertiary" class="gp_infos">
-                <p>Du : {{ event.startRegistration | date:'dd/MM/y' }}</p>
-                <p>Au : {{ event.endRegistration | date:'dd/MM/y' }}</p>
-            </ion-text>
-        </div>
-        <div class="sub_block">
-            <ion-text color="secondary" class="subtitle">Événement</ion-text>
-            <ion-text color="tertiary" class="gp_infos">
-                <p>Du : {{ event.startEvent | date:'dd/MM/y' }}</p>
-                <p>Au : {{ event.endEvent | date:'dd/MM/y' }}</p>
-            </ion-text>
-        </div>
-        <div class="sub_block">
-            <ion-text color="secondary" class="subtitle">Lieu</ion-text>
-            <ion-text color="tertiary" class="gp_infos">
-                <p>{{ event.place.name }}</p>
-                <p>{{ event.place.address }}</p>
-                <p>{{ event.place.zipcode }} {{ event.place.city | uppercase }}</p>
-            </ion-text>
-        </div>
-    </ion-card-content>
-  </ion-card>
+    <ion-card color="medium">
+        <ion-card-header>
+            <ion-card-title color="primary">{{ event.name }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <div class="sub_block">
+                <ion-text color="secondary" class="subtitle">Inscriptions</ion-text>
+                <ion-text color="tertiary" class="gp_infos">
+                    <p>Du : {{ event.startRegistration | date:'dd/MM/y' }}</p>
+                    <p>Au : {{ event.endRegistration | date:'dd/MM/y' }}</p>
+                </ion-text>
+            </div>
+            <div class="sub_block">
+                <ion-text color="secondary" class="subtitle">Événement</ion-text>
+                <ion-text color="tertiary" class="gp_infos">
+                    <p>Du : {{ event.startEvent | date:'dd/MM/y' }}</p>
+                    <p>Au : {{ event.endEvent | date:'dd/MM/y' }}</p>
+                </ion-text>
+            </div>
+            <div class="sub_block">
+                <ion-text color="secondary" class="subtitle">Lieu</ion-text>
+                <ion-text color="tertiary" class="gp_infos">
+                    <p>{{ event.place.name }}</p>
+                    <p>{{ event.place.address }}</p>
+                    <p>{{ event.place.zipcode }} {{ event.place.city | uppercase }}</p>
+                </ion-text>
+            </div>
+        </ion-card-content>
+    </ion-card>
 
-  <div id="block_activities">
-      <app-event-activities [event]="event"></app-event-activities>
-  </div>
+    <div id="block_activities" *ngIf="eventDatesStatus == 2">
+        <app-event-activities [event]="event"></app-event-activities>
+    </div>
 
 </section>
