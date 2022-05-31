@@ -1,6 +1,6 @@
 <section id="event" *ngIf="event">
 
-  <ion-card>
+  <ion-card color="medium">
     <ion-card-header>
       <ion-card-title color="primary">{{ event.name }}</ion-card-title>
     </ion-card-header>
@@ -33,10 +33,5 @@
   <div id="block_activities">
       <app-event-activities [event]="event"></app-event-activities>
   </div>
-
-  <!-- <div id="recap">
-    <h2>Récapitulatif</h2>
-    <p class="important_info">Inscriptions : <span class="highlight_infos">{{ event.registrations?.length }}</span> équipes pour un total de <span class="highlight_infos">{{ eventTeamsMembers }}</span> participants.</p>
-</div> -->
 
 </section>

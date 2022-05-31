@@ -4,7 +4,7 @@
     <h1>{{ activity.name }}</h1>
   </ion-text>
 
-  <ion-card *ngFor="let teamScore of teamsScores;">
+  <ion-card color="medium" *ngFor="let teamScore of teamsScores;">
     <ion-card-content>
       <ion-text class="team_name" color="secondary">{{ teamScore.team.name }}</ion-text>
       <ion-item>

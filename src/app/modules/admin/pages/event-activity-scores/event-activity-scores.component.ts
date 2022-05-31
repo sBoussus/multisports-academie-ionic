@@ -35,6 +35,7 @@ export class EventActivityScoresComponent implements OnInit {
     this.initActivity();
   }
 
+  // get the current event
   initEvent() {
     this.eventService.findById(this.eventId).subscribe(data => {
       this.event = data;
@@ -42,12 +43,14 @@ export class EventActivityScoresComponent implements OnInit {
     })    
   }
 
+  // get the current activity
   initActivity() {
     this.activityService.findById(this.activityId).subscribe(data => {
       this.activity = data;
     })    
   }
 
+  // get the scores of each teams
   initTeamsScores() {
     let registrations = this.event.registrations;
     for (let registration of registrations) {
@@ -85,6 +88,7 @@ export class EventActivityScoresComponent implements OnInit {
     console.log(this.teamsScores);
   }
 
+  // change score
   onChangepoints(event: any, teamId: string) {
     // build a new score
     let newScore = new Score();
@@ -122,9 +126,9 @@ export class EventActivityScoresComponent implements OnInit {
         console.log(data);
       })    
     }   
-
   }
 
+  // redirection to the event page
   goToEvent() {
     this.router.navigateByUrl(`/event/${this.eventId}`);
   }
